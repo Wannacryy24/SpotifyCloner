@@ -1,0 +1,86 @@
+
+  .container {
+    display: flex;
+    height: 100vh;
+    background-color: #121212; 
+    color: #fff;
+    
+  }
+  
+  .sidebar {
+    width: 25%;
+    background-color: #181818; 
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    border-radius: 1rem;
+    /* justify-content: space-between; */
+  }
+  
+  .library {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+  }
+  
+  .playlist-section {
+    margin-top: 20px;
+    background-color: #282828;
+    padding: 15px;
+    border-radius: 8px;
+  }
+  
+  .create-playlist-btn {
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .legal-links {
+    font-size: 12px;
+  }
+  
+  .legal-links ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .legal-links li {
+    margin: 10px 0;
+    cursor: pointer;
+    color: #b3b3b3;
+  }
+  
+  .language-btn {
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 20px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .language-btn i {
+    margin-right: 8px;
+  }
+  
+  .content {
+    width: 75%;
+    background-color: #121212;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  

@@ -1,0 +1,105 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+  }
+  
+  .header-left,
+  .header-center,
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .icon{
+    background-color: #2e2e2e;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .header-left .logo {
+    margin-right: 20px;
+  }
+  
+  .logo-img {
+    width: 4rem;
+    height: 4rem;
+  }
+  
+  .header-left .icon {
+    font-size: 20px;
+  }
+  
+  .header-center {
+    flex-grow: 1;
+    max-width: 500px;
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #2e2e2e;
+    padding: 20px 15px;
+    border-radius: 20px;
+    width: 100%;
+  }
+  
+  .search-bar i {
+    color: #fff;
+    margin-right: 10px;
+  }
+  
+  .search-input {
+    border: none;
+    background: none;
+    outline: none;
+    color: #fff;
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  .search-input::placeholder {
+    color: #999;
+  }
+  
+  
+  .header-right .login-btn {
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 16px 24px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 14px;
+  }
+  
+  .header-right .signup-btn{
+    background-color: #000;
+    color: #9d9c9c;
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+    margin-left: 10px;
+    padding: 10px;
+    /* border: 2px solid #fff; */
+  }
+  
