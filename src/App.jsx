@@ -26,6 +26,7 @@ export default function App(){
     });
   }, []);
   //changes in App.jsx
+  //third change in same line 
   if(accessToken){
 
     fetch("https://api.spotify.com/v1/artists/4Z8W4fKeB5YxbusRsdQVPb", {
