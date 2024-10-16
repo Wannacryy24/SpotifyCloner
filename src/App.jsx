@@ -25,7 +25,7 @@ export default function App(){
       console.error('Error fetching the token:', error);
     });
   }, []);
-  
+  //changes in App.jsx
   if(accessToken){
 
     fetch("https://api.spotify.com/v1/artists/4Z8W4fKeB5YxbusRsdQVPb", {
