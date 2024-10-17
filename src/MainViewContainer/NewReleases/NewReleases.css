@@ -1,0 +1,6 @@
+.new-releases{
+    margin-top: 20px;
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+}
