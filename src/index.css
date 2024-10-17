@@ -1,0 +1,8 @@
+.testing-div img{
+    height: 20vw;
+    width: 20vw;
+}
+.testing-div {
+    display: flex;
+    gap: 1rem;
+}

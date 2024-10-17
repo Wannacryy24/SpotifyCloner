@@ -1,5 +1,7 @@
+import NewReleases from '../MainViewContainer/NewReleases/NewReleases';
 import Button from '../Minicomponents/Button';
 import Li from '../Minicomponents/Licomp';
+import Testing from '../Testing';
 import './Sidebar.css';
 
 export default function Sidebar(){
@@ -43,7 +45,10 @@ export default function Sidebar(){
             </div>
           </div>
     
-          <div className="content"></div>
+          <div className="content">
+                <Testing/>
+                <NewReleases/>
+          </div>
         </div>
       );
 }

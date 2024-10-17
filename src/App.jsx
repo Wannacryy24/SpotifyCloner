@@ -1,10 +1,6 @@
 import Header from "./Header/Header";
 import '@fortawesome/fontawesome-free/css/all.css';
 import Sidebar from "./Sidebar/Sidebar";
-import Login from "./Login/Login";
-
-import Testing from "./Testing";
-
 
 export default function App(){
   return(
@@ -12,7 +8,7 @@ export default function App(){
       <Header/>
       <Sidebar/>
       {/* <Login/> */}
-      <Testing/>
+      {/* <Testing/> */}
     </>
   )
 }

@@ -1,14 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { TokenContext } from './ContextAPI/Context';
+import { Skeleton } from '@mui/material';
 
 export default function Testing() {
-    const {accessToken ,setAccessToken} = useContext(TokenContext);
+    const {accessToken ,setAccessToken , loading , setLoading } = useContext(TokenContext);
     const [albumData , setAlbumData] = useState([]);
-    const [loading , setLoading] = useState(false);
+    
     useEffect(()=>{
       const client_id = `10365053c8d0421e89557a459da18b5e`;
       const secret_id = `af68b99be77f4206932332b7f6b24929`;
-  
      const fetchToken = async ()=>{ 
      try{
          const response = await fetch('https://accounts.spotify.com/api/token', {
@@ -53,7 +53,7 @@ export default function Testing() {
                 const data = await response.json();
                 setAlbumData(data.albums);
                 setLoading(true);
-                console.log(data.albums);
+                // console.log(data.albums);
             } catch (error) {
                 console.error('Error fetching albums:', error);
             }
@@ -61,17 +61,23 @@ export default function Testing() {
         fetchAlbums();
     }, [accessToken]);
 
+   
+
   return (
     <>
-        <div>{loading && <img src={albumData[0].images[0].url} alt="" />}</div>
-        <div>{loading && <img src={albumData[1].images[0].url} alt="" />}</div>
-        <div>{loading && <img src={albumData[2].images[0].url} alt="" />}</div>
+        {
+            loading ? (
+                <div className='testing-div'>
+                    {loading && <img src={albumData[0].images[0].url} alt="" />}
+                    {loading && <img src={albumData[1].images[0].url} alt="" />}
+                    {loading && <img src={albumData[2].images[0].url} alt="" />}
+                </div>
+            )
+            :(<Skeleton/>) 
+        }
     </>
   )
 }
-
-
-
 
 
 
@@ -89,4 +95,6 @@ export default function Testing() {
 //       .then(data=>console.log(data)
 //     )
 //   }
+
+
 
