@@ -2,18 +2,17 @@ import Header from "./Header/Header";
 import '@fortawesome/fontawesome-free/css/all.css';
 import Sidebar from "./Sidebar/Sidebar";
 import Login from "./Login/Login";
-import { useEffect, useState } from "react";
+
 import Testing from "./Testing";
 
-export default function App(){
- 
 
+export default function App(){
   return(
     <>
-    <Header/>
-    <Sidebar/>
-    {/* <Login/> */}
-    <Testing/>
+      <Header/>
+      <Sidebar/>
+      {/* <Login/> */}
+      <Testing/>
     </>
   )
 }
