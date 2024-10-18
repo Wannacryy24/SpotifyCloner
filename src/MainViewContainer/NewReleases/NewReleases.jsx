@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { TokenContext } from '../../ContextAPI/Context';
 import './NewReleases.css';
 import SongsList from '../../SongsList/SongsList';
@@ -46,6 +46,7 @@ export default function NewReleases() {
                 throw new Error(`Songs fetching error : ${response.status}`)
             }
             const data = await response.json();
+            console.log(data.items);
             setSelectedAlbumSongs(data.items);
         }catch(error){
             setError(error.message);
