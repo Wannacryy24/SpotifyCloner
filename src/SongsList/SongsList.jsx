@@ -8,7 +8,9 @@ export default function Songslist({songs}){
     const handlePlaySong = (data)=>{
         console.log(data.uri);
         setPlaySong(true);
-        setPlayUri(data.uri);   
+        setPlayUri(data.uri);  
+        
+        //commenting to perform squash
     }
     return (
         <div className="songlist-container">
