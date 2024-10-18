@@ -1,6 +1,17 @@
+import { useContext, useState } from 'react';
+import { TokenContext } from '../ContextAPI/Context';
 import './SongsList.css'; 
-
+import SpotifyPlayer from 'react-spotify-web-playback';
 export default function Songslist({songs}){
+    const {accessToken , playUri ,  setPlayUri,} = useContext(TokenContext);
+    const [playSong , setPlaySong] = useState(false);
+    const handlePlaySong = (data)=>{
+        console.log(data.uri);
+        setPlaySong(true);
+        setPlayUri(data.uri);  
+        
+        //commenting to perform squash
+    }
     return (
         <div className="songlist-container">
             <h2 className="album-title">Album Songs</h2>
@@ -15,7 +26,7 @@ export default function Songslist({songs}){
                 </thead>
                 <tbody>
                     {songs.map((song, index)=>(
-                        <tr key={song.id}>
+                        <tr key={song.id} onClick={()=>handlePlaySong(song)}>
                             <td>{index + 1}</td>
                             <td>{song.name}</td>
                             <td>{song.artists.map(artist => artist.name).join(', ')}</td>
@@ -23,9 +34,14 @@ export default function Songslist({songs}){
                         </tr>
                     ))}
                 </tbody>
-            </table>
+            </table>  
+            {
+                playSong && 
+                <SpotifyPlayer
+            token={`${accessToken}`}
+            uris={playUri}
+            />
+            }
         </div>
     );
 };
-
-
