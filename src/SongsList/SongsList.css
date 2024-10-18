@@ -1,0 +1,30 @@
+.songlist-container {
+    padding: 20px;
+    background-color: rgb(24, 24, 24);
+    color: white;
+    border-radius: 10px;
+}
+.album-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+.songlist {
+    width: 100%;
+    border-collapse: collapse;
+}
+.songlist th, .songlist td {
+    padding: 10px;
+    text-align: left;
+}
+.songlist th {
+    font-weight: bold;
+    color: #b3b3b3;
+}
+.songlist td {
+    border-top: 1px solid #333;
+}
+.songlist td:last-child {
+    width: 70px;
+    text-align: right;
+}
+
