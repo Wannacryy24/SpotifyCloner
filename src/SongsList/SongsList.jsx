@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { TokenContext } from '../ContextAPI/Context';
 import './SongsList.css'; 
-import SpotifyPlayer from 'react-spotify-web-playback';
+
 export default function Songslist({songs}){
     const {accessToken , playUri ,  setPlayUri,} = useContext(TokenContext);
     const [playSong , setPlaySong] = useState(false);
@@ -9,8 +9,6 @@ export default function Songslist({songs}){
         console.log(data.uri);
         setPlaySong(true);
         setPlayUri(data.uri);  
-        
-        //commenting to perform squash
     }
     return (
         <div className="songlist-container">
@@ -35,13 +33,18 @@ export default function Songslist({songs}){
                     ))}
                 </tbody>
             </table>  
-            {
-                playSong && 
-                <SpotifyPlayer
-            token={`${accessToken}`}
-            uris={playUri}
-            />
-            }
+            {playSong && 
+                <iframe
+                    title="Spotify Embed: Specific Song"
+                    src={`https://open.spotify.com/embed/track/${playUri.split(':')[2]}?utm_source=generator&theme=0`} // Get track ID
+                    width="100%"
+                    height="100%"
+                    style={{ minHeight: '360px' }}
+                    frameBorder="0"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"
+                />
+            }    
         </div>
     );
 };
