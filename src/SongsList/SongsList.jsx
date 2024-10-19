@@ -1,14 +1,14 @@
 import { useContext, useState } from 'react';
 import { TokenContext } from '../ContextAPI/Context';
 import './SongsList.css'; 
-import SpotifyWebPlayer from 'react-spotify-web-playback';
+
 export default function Songslist({songs}){
     const {accessToken , playUri ,  setPlayUri,} = useContext(TokenContext);
     const [playSong , setPlaySong] = useState(false);
     const handlePlaySong = (data)=>{
-        console.log(data);
+        console.log(data.uri);
         setPlaySong(true);
-        setPlayUri(data.uri);   
+        setPlayUri(data.uri);  
     }
     return (
         <div className="songlist-container">
@@ -44,7 +44,7 @@ export default function Songslist({songs}){
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                     loading="lazy"
                 />
-            }
+            }    
         </div>
     );
 };
