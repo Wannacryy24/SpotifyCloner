@@ -35,6 +35,16 @@ export default function App(){
     <>
       <Header/>
       <Sidebar/>
+      <iframe
+  title="Spotify Embed: Recommendation Playlist "
+  src={`https://open.spotify.com/embed/playlist/2ti7YkSbhIxVMm4rtA7iLA?utm_source=generator&theme=0`}
+  width="100%"
+  height="100%"
+  style={{ minHeight: '360px' }}
+  frameBorder="0"
+  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+  loading="lazy"
+/>
     </>
   )
 }
@@ -45,6 +55,3 @@ export default function App(){
 
 // curl "https://api.spotify.com/v1/artists/4Z8W4fKeB5YxbusRsdQVPb" \
 // -H "Authorization: Bearer  BQDBKJ5eo5jxbtpWjVOj7ryS84khybFpP_lTqzV7uV-T_m0cTfwvdn5BnBSKPxKgEb11"
-
-
-//Day 6 git commands
