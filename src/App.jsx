@@ -2,7 +2,12 @@ import Header from "./Header/Header";
 import '@fortawesome/fontawesome-free/css/all.css';
 import Sidebar from "./Sidebar/Sidebar";
 import { TokenContext } from "./ContextAPI/Context";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect} from "react";
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Route, Routes } from "react-router-dom";
+import PageNotFound from "./PageNotFound/PageNotFound";
+import Songslist from "./SongsList/SongsList";
+import Testing from "./Testing";
 
 export default function App(){
   const {accessToken ,setAccessToken , loading , setLoading } = useContext(TokenContext);
@@ -30,11 +35,18 @@ export default function App(){
       }
       };
       fetchToken();
+      
   },[]);
   return(
     <>
-      <Header/>
-      <Sidebar/>
+        <Router>
+            <Routes>
+                <Route path='*' element={<PageNotFound></PageNotFound>}/>
+                <Route path="/" element={<><Header/><Sidebar/><Testing/></>}/>
+                {/* <Route path='/tracks' element={<Songslist></Songslist>}/> */}
+            </Routes>
+            
+        </Router>
     </>
   )
 }

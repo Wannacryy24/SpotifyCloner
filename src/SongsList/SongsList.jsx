@@ -33,7 +33,8 @@ export default function Songslist({songs}){
                     ))}
                 </tbody>
             </table>  
-            {playSong && 
+            {
+            playSong && 
                 <iframe
                     title="Spotify Embed: Specific Song"
                     src={`https://open.spotify.com/embed/track/${playUri.split(':')[2]}?utm_source=generator&theme=0`} // Get track ID
