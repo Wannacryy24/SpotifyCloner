@@ -43,7 +43,7 @@ export default function App(){
             <Header/>
             <Routes>
                 <Route path='*' element={<PageNotFound></PageNotFound>}/>
-                <Route path="/" element={<><Sidebar/><Testing/></>}/>
+                <Route path="/" element={<><Sidebar/></>}/>
                 {/* <Route path='/tracks' element={<Songslist></Songslist>}/> */}
             </Routes>
         </Router>
