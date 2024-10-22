@@ -40,12 +40,12 @@ export default function App(){
   return(
     <>
         <Router>
+            <Header/>
             <Routes>
                 <Route path='*' element={<PageNotFound></PageNotFound>}/>
-                <Route path="/" element={<><Header/><Sidebar/><Testing/></>}/>
+                <Route path="/" element={<><Sidebar/><Testing/></>}/>
                 {/* <Route path='/tracks' element={<Songslist></Songslist>}/> */}
             </Routes>
-            
         </Router>
     </>
   )
