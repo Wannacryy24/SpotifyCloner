@@ -1,16 +1,21 @@
 import React from 'react';
 import './Header.css';
+import { useNavigate } from 'react-router';
 
 export default function Header() {
   // const [showLogin , setShowLogin] = useState(false);
-
-
+  const navigate = useNavigate();
+    const handletoHome = ()=>{
+    navigate('/');
+    console.log('clicked');
+  }
 
   return (
-
     <header className="header">
       <div className="header-left">
-        <div className="logo">
+        <div className="logo"
+        onClick={handletoHome}
+        >
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg"
             alt="Logo"
