@@ -6,12 +6,16 @@ export const TokenProvider = ({ children }) => {
     const [accessToken, setAccessToken] = useState('');
     const [loading , setLoading] = useState(false);
     const [playUri ,  setPlayUri] = useState('');
+    const [searchQuery, setSearchQuery] = useState(''); 
+    const [searchResults, setSearchResults] = useState([]);
     return (
         <TokenContext.Provider value={
             { 
                 accessToken, setAccessToken ,
                 loading , setLoading,
                 playUri ,  setPlayUri,
+                searchQuery, setSearchQuery, 
+                searchResults, setSearchResults,  
             }
         }
         >
