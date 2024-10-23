@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { TokenContext } from '../../ContextAPI/Context';
 import './NewReleases.css';
 import SongsList from '../../SongsList/SongsList';
+import { useNavigate, useParams } from 'react-router';
 
 export default function NewReleases() {
   const { accessToken, searchQuery, searchResults, setSearchResults } = useContext(TokenContext); 
@@ -9,8 +10,7 @@ export default function NewReleases() {
   const [newReleasesData, setNewReleasesData] = useState([]);
   const [error, setError] = useState(null);
   const [selectedAlbumSongs, setSelectedAlbumSongs] = useState(null);
-
-        const {query} = useParams();
+  const navigate  = useNavigate();
         
   useEffect(() => {
     const fetchNewReleases = async () => {
@@ -67,31 +67,11 @@ export default function NewReleases() {
     handleSearch();
   }, [searchQuery, accessToken, setSearchResults]); 
 
-  const fetchAlbumSongs = async (albumId) => {
-    try {
-      const response = await fetch(`https://api.spotify.com/v1/albums/${albumId}/tracks`, {
-        method: "GET",
-        headers: {
-          "Authorization": `Bearer ${accessToken}`
-        }
-      });
-      if (!response.ok) {
-        throw new Error(`Songs fetching error: ${response.status}`);
-      }
-      const data = await response.json();
-      setSelectedAlbumSongs(data.items);
-    } catch (error) {
-      setError(error.message);
-    }
+
+  const fetchAlbumSongs =  (albumId) => {
+    navigate(`/tracks/${albumId}`);
   };
 
-  if (selectedAlbumSongs) {
-    return (
-      <div className="content">
-        <SongsList songs={selectedAlbumSongs} />
-      </div>
-    );
-  }
 
   return (
     <div className="new-releases">

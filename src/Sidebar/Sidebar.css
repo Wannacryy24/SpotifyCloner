@@ -75,16 +75,3 @@
     margin-right: 8px;
   }
   
-  .content {
-    position: absolute;
-    top: 10vh;
-    right: 0;
-    width: 75%;
-    background-color: #121212;
-    color: white;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-  }
-  
