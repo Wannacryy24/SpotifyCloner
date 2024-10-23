@@ -23,7 +23,7 @@
 .track-list{
     display: flex;
     flex-wrap: wrap;
-    gap: 5vw;
+    gap: 1vw;
     /* width: 20vw; */
     text-align: center;
 }
@@ -31,4 +31,35 @@
     width: 10rem;
     height: 10rem;
     border-radius: 50%;
+}
+.track{
+    height: 40vh;
+    width: 17vw;
+    /* border: white solid; */
+    background-color: rgba(43, 42, 42, 0.768);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    position: relative;
+}
+.track .play-button {
+    position: absolute;
+    display: none; /* Hidden by default */
+    font-size: 3rem;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    border: none;
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.track:hover .play-button {
+    display: flex; 
 }
