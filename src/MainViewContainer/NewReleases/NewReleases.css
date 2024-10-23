@@ -20,3 +20,15 @@
     display: flex;
     gap: 1rem;
 }
+.track-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5vw;
+    /* width: 20vw; */
+    text-align: center;
+}
+.track-list img{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+}
