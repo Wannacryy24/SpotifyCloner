@@ -8,6 +8,9 @@ export const TokenProvider = ({ children }) => {
     const [playUri ,  setPlayUri] = useState('');
     const [searchQuery, setSearchQuery] = useState(''); 
     const [searchResults, setSearchResults] = useState([]);
+    const [playSong , setPlaySong] = useState(false);
+    const [songId , setSongId] =  useState('');  
+  
     return (
         <TokenContext.Provider value={
             { 
@@ -16,6 +19,8 @@ export const TokenProvider = ({ children }) => {
                 playUri ,  setPlayUri,
                 searchQuery, setSearchQuery, 
                 searchResults, setSearchResults,  
+                playSong , setPlaySong,
+                songId , setSongId
             }
         }
         >

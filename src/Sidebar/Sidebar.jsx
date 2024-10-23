@@ -5,7 +5,6 @@ import Li from '../Minicomponents/Licomp';
 import './Sidebar.css';
 
 export default function Sidebar(){
-   
     const sideLinks = [
         'Legal',
         'Safety & Privacy Center',
