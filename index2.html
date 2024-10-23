@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //  Functional programming (FP) is a programming paradigm where you build software by composing pure functions. It emphasizes immutability, statelessness, and side-effect-free computation 
+
+        let result = 0;
+        for (let i = 0; i < 5; i++) {
+          result += i;
+        }   
+        
+        function sum(a,b){
+            return a+b;
+        }
+
+        const total =[1,2,3,4,5].reduce(sum,0);
+        console.log(total);
+
+        // HIGH ORDER FUNCTIONS
+
+        function add(a,b){
+            return a+b;
+        }
+
+        function executeOperations(operation,a, b){
+            return operation(a,b);
+        }
+        executeOperations(add,2,4);
+
+        // COMPOSITION
+        const multiplyBy2 = (x) => x*2;
+        
+        const add3 = (x) => x+3;
+        
+        const multiplyThenAdd = (x) => add3(multiplyBy2(x));  
+
+        console.log(multiplyThenAdd(5))
+        
+
+        // CURRYING
+        const curriedAdd = (a) =>  (b)=> a+b;
+        console.log(curriedAdd(2)(3));
+
+        const addtwo = curriedAdd(2)
+        console.log(addtwo(3));
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
+

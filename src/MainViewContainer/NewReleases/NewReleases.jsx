@@ -1,8 +1,7 @@
     import { useContext, useEffect, useState } from 'react';
     import { TokenContext } from '../../ContextAPI/Context';
     import './NewReleases.css';
-    import SongsList from '../../SongsList/SongsList';
-    import { useNavigate } from 'react-router';
+    import { useNavigate, useParams } from 'react-router';
 
     export default function NewReleases() {
         const { accessToken } = useContext(TokenContext);
@@ -11,6 +10,8 @@
         const [error, setError] = useState(null);
         const [selectedAlbumSongs, setSelectedAlbumSongs] = useState(null);
         const navigate  = useNavigate();
+        const {query} = useParams();
+        
         useEffect(() => {
             const fetchNewReleases = async () => {
                 if (!accessToken) return;
@@ -35,37 +36,11 @@
             fetchNewReleases();
         }, [accessToken]);
 
+
         const fetchAlbumSongs = async (albumId)=>{
-            try{
-                const response = await fetch(`https://api.spotify.com/v1/albums/${albumId}/tracks`, {
-                    method: "GET",
-                    headers:{
-                        "Authorization" : `Bearer ${accessToken}`
-                    }
-                })
-                if(!response.ok){
-                    throw new Error(`Songs fetching error : ${response.status}`)
-                }
-                const data = await response.json();
-                console.log(data);
-                setSelectedAlbumSongs(data.items);
-            }catch(error){
-                setError(error.message);
-            }
+            navigate(`/tracks/${albumId}`);            
         }
-        // useEffect(() => {
-        //     if (selectedAlbumSongs) {
-        //         navigate('/tracks');
-        //     }
-        // }, [selectedAlbumSongs, navigate]);
-               
-        if(selectedAlbumSongs){
-            return(
-                <div className="content">
-                <SongsList songs={selectedAlbumSongs} />
-            </div>
-            )
-        }
+
 
         return (
             <div className="new-releases">

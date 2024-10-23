@@ -44,10 +44,6 @@ export default function Sidebar(){
               />
             </div>
           </div>
-          <div className="content">
-                <AlbumData/>
-                <NewReleases/>
-          </div>
         </div>
       );
 }
