@@ -5,14 +5,21 @@ import { TokenContext } from '../ContextAPI/Context';
 
 export default function Header() {
   const navigate = useNavigate();
-  
-  
   const { searchQuery, setSearchQuery } = useContext(TokenContext);
   
   const handleToHome = () => {
     navigate('/');
   };
 
+  const handleSearch = (e) =>{
+    const searchInput = e.target.value;
+    if(searchInput === ''){
+      navigate('/');
+    }else{
+      navigate(`/search/${searchInput}`);
+    }
+    setSearchQuery(e.target.value); 
+  }
   return (
     <header className="header">
       <div className="header-left">
@@ -24,9 +31,8 @@ export default function Header() {
           />
         </div>
       </div>
-
       <div className="header-center">
-        <div className="icon">
+        <div className="icon" onClick={handleToHome}>
           <i className="fas fa-home"></i>
         </div>
         <div className="search-bar">
@@ -34,13 +40,12 @@ export default function Header() {
           <input
             type="text"
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)} 
+            onChange={handleSearch} 
             placeholder="What do you want to play?"
             className="search-input"
           />
         </div>
       </div>
-
       <div className="header-right">
         <button className="signup-btn">Sign up</button>
         <button className="login-btn">Log in</button>

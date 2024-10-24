@@ -1,10 +1,10 @@
 import React from 'react'
+import { useParams } from 'react-router-dom';
 
-export default function Player({id}) {
-    console.log('inPlayer');
-    console.log(id);
+export default function Player() {
+    const {id, trackId} = useParams();
   return (
-    <>
+    <div className='content'>
         <iframe
             title="Spotify Embed: Specific Song"
             src={`https://open.spotify.com/embed/track/${id}?utm_source=generator&theme=0`} // Get track ID
@@ -15,6 +15,8 @@ export default function Player({id}) {
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
         />
-    </>
+    </div>
     )
 }
+
+//0YUrjFy4qFKOO5NhM9tYdV

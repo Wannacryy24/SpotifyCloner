@@ -24,7 +24,6 @@
     display: flex;
     flex-wrap: wrap;
     gap: 5vw;
-    /* width: 20vw; */
     text-align: center;
 }
 .track-list img{

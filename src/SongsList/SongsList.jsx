@@ -1,11 +1,12 @@
 import { useContext, useEffect, useState } from 'react';
 import { TokenContext } from '../ContextAPI/Context';
 import './SongsList.css'; 
-import { useParams } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import Player from '../Player/Player';
 
 export default function Songslist(){
     const {trackId} = useParams();
+    const navigate = useNavigate();
     const {accessToken , playUri ,  setPlayUri,playSong , setPlaySong,
         songId , setSongId} = useContext(TokenContext);
     const [selectedAlbumSongs, setSelectedAlbumSongs] = useState([]);
@@ -39,19 +40,12 @@ export default function Songslist(){
 
     const handlePlaySong = (data)=>{
         console.log(data.id);
-        console.log('data.uri',data.uri);
-        setPlaySong(true);
-        setSongId(data.id);
-        setPlayUri(data.uri);  
+        navigate(`/song/${data.id}`)
     }
     
     return (
         <div className="songlist-container content">
-            { playSong ?
-                (
-                    <Player id={songId}/>
-                ):
-                (
+            {
                     <>
                         <h2 className="album-title">Album Songs</h2>
                         <table className="songlist">
@@ -75,7 +69,7 @@ export default function Songslist(){
                             </tbody>
                         </table>  
                     </>
-                )
+                
             }    
         </div>
     );

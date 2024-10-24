@@ -8,9 +8,11 @@ import { Route, Routes } from "react-router-dom";
 import PageNotFound from "./PageNotFound/PageNotFound";
 import Songslist from "./SongsList/SongsList";
 import RightSideContent from "./RightSideContent/RightSideContent";
+import Player from "./Player/Player";
+import NewReleases from "./MainViewContainer/NewReleases/NewReleases";
+import SearchedComponent from "./SearchedComponent/SearchedComponent";
 
 export default function App(){
-  
   const {accessToken ,setAccessToken , loading , setLoading } = useContext(TokenContext);
   
   useEffect(()=>{
@@ -48,6 +50,8 @@ export default function App(){
             <Routes>
                 <Route path="/" element={<RightSideContent/>}/>
                 <Route path="/tracks/:trackId" element={<Songslist/>}/>
+                <Route path='/song/:id' element={<Player/>}/>
+                <Route path="/search/:searchInput" element={<SearchedComponent/>} />
                 <Route path='*' element={<PageNotFound/>}/>
             </Routes>
         </Router>
