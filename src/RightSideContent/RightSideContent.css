@@ -10,5 +10,15 @@
     display: flex;
     flex-direction: column;
     overflow-y: auto;
+    height: 90vh;
+    overflow-x: auto;
   }
   
+   
+  @media(max-width:768px){
+    .content{
+      position: absolute;
+      width: 100%;
+      height: auto;
+    }
+  }

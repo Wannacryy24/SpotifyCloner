@@ -20,3 +20,14 @@
     gap: .5rem   ;
     width: 10vw;
 }
+  
+.album-main-container{
+    height: 40vh;
+}
+
+@media(max-width:768px){  
+   .album-div{
+    overflow: auto;
+    height: 90%;
+   }
+  }

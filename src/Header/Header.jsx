@@ -6,7 +6,6 @@ import { TokenContext } from '../ContextAPI/Context';
 export default function Header() {
   const navigate = useNavigate();
   const { searchQuery, setSearchQuery } = useContext(TokenContext);
-  
   const handleToHome = () => {
     setSearchQuery('');
     navigate('/');

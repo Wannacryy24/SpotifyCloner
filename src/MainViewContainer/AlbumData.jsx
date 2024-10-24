@@ -8,7 +8,7 @@ export default function AlbumData() {
     const [loading, setLoading] = useState(true); 
     const [error, setError] = useState(null); 
     const { accessToken } = useContext(TokenContext);
-    const navigate = useNavigate();
+    const navigate = useNavigate()
     useEffect(() => {
         const fetchAlbums = async () => {
             if (!accessToken) return;
@@ -47,11 +47,11 @@ export default function AlbumData() {
         navigate(`/tracks/${albumId}`);
       };
     return (
-        <>
+        <div className='album-main-container'>
             <h1>Albums</h1>
             <div className='album-div'>
                 {albumData.map((album, index) => (
-                    <div key={album.id} className='album-single-holder hoverPointer' onClick={() => fetchAlbumSongs(album.id)}>
+                    <div key={album.id} className='album hoverPointer' onClick={() => fetchAlbumSongs(album.id)}>
                         <>
                             <img key={album.id} src={album.images[0]?.url} alt={album.name} />
                             <h3>{album.name}</h3>
@@ -60,7 +60,7 @@ export default function AlbumData() {
                     </div>
                 ))}
             </div>
-        </>
+        </div>
     );
 }
 

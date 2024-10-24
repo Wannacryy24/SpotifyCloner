@@ -10,7 +10,6 @@ export default function SearchedComponent() {
     
     useEffect(() => {
         setSearchQuery(searchInput);
-
         const handleSearch = async () => {
           if (!accessToken) return;
 
@@ -18,7 +17,7 @@ export default function SearchedComponent() {
             setSearchResults([]);
             return;
           }
-          
+
           try {
             const response = await fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(searchQuery)}&type=track`,
               {
@@ -41,20 +40,21 @@ export default function SearchedComponent() {
         handleSearch();
       }, [searchQuery, accessToken, setSearchResults]); 
     
-
     const handlePlaySong = (id) => {
         navigate(`/song/${id}`);
     }
-    
+
   return (
     <div className="search-results content">
         <div className="track-list">
             {searchResults.map((track) => (
               <div key={track.id} className="track hoverPointer" onClick={()=>handlePlaySong(track.id)}>
+                <div className='track-image-div'>
                 <img src={track.album.images[0].url} alt={track.name} />
+                <button className="play-button">▶</button>
+                </div>
                 <h3>{track.name}</h3>
                 <p>{track.artists.map(artist => artist.name).join(', ')}</p>
-                <button className="play-button">▶</button>
               </div>
             ))}
             {playSong &&  <Player id={songId} />}

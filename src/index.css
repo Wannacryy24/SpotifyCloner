@@ -5,3 +5,14 @@
 tr:hover{
     cursor: pointer;
 }
+.album{
+    width: 10rem;
+}
+@media(max-width:768px){
+    .album{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 10rem;
+    }
+}
