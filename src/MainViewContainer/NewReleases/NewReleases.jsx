@@ -55,6 +55,7 @@ export default function NewReleases() {
               <img src={album.images[0].url} alt={album.name} />
               <h3>{album.name}</h3>
               <p>{album.artists.map(artist => artist.name).join(', ')}</p>
+              <button class="play-button">▶</button>
             </div>
           ))
         ) : (
