@@ -2,12 +2,13 @@ import React, { useContext, useEffect, useState } from 'react';
 import { TokenContext } from '../ContextAPI/Context';
 import { Skeleton } from '@mui/material';
 import './Album.css'
+import { useNavigate } from 'react-router';
 export default function AlbumData() {
     const [albumData, setAlbumData] = useState([]);
     const [loading, setLoading] = useState(true); 
     const [error, setError] = useState(null); 
     const { accessToken } = useContext(TokenContext);
-
+    const navigate = useNavigate();
     useEffect(() => {
         const fetchAlbums = async () => {
             if (!accessToken) return;
@@ -42,12 +43,15 @@ export default function AlbumData() {
         return <div>Error fetching albums: {error}</div>; 
     }
 
+    const fetchAlbumSongs = (albumId) => {
+        navigate(`/tracks/${albumId}`);
+      };
     return (
         <>
             <h1>Albums</h1>
             <div className='album-div'>
                 {albumData.map((album, index) => (
-                    <div key={album.id} className='album-single-holder hoverPointer'>
+                    <div key={album.id} className='album-single-holder hoverPointer' onClick={() => fetchAlbumSongs(album.id)}>
                         <>
                             <img key={album.id} src={album.images[0]?.url} alt={album.name} />
                             <h3>{album.name}</h3>
