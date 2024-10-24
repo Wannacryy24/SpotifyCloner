@@ -8,6 +8,7 @@ export default function Header() {
   const { searchQuery, setSearchQuery } = useContext(TokenContext);
   
   const handleToHome = () => {
+    setSearchQuery('');
     navigate('/');
   };
 
@@ -20,10 +21,11 @@ export default function Header() {
     }
     setSearchQuery(e.target.value); 
   }
+  
   return (
     <header className="header">
       <div className="header-left">
-        <div className="logo" onClick={handleToHome}>
+        <div className="logo hoverPointer" onClick={handleToHome}>
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg"
             alt="Logo"
@@ -32,7 +34,7 @@ export default function Header() {
         </div>
       </div>
       <div className="header-center">
-        <div className="icon" onClick={handleToHome}>
+        <div className="icon hoverPointer" onClick={handleToHome}>
           <i className="fas fa-home"></i>
         </div>
         <div className="search-bar">

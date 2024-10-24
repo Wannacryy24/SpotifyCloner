@@ -9,11 +9,10 @@ import PageNotFound from "./PageNotFound/PageNotFound";
 import Songslist from "./SongsList/SongsList";
 import RightSideContent from "./RightSideContent/RightSideContent";
 import Player from "./Player/Player";
-import NewReleases from "./MainViewContainer/NewReleases/NewReleases";
 import SearchedComponent from "./SearchedComponent/SearchedComponent";
 
 export default function App(){
-  const {accessToken ,setAccessToken , loading , setLoading } = useContext(TokenContext);
+  const {setAccessToken ,setSearchQuery} = useContext(TokenContext);
   
   useEffect(()=>{
     const client_id = `10365053c8d0421e89557a459da18b5e`;

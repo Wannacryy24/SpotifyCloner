@@ -1,13 +1,7 @@
-.testing-div img{
-    height: 10vw;
-    width: 10vw;
+.hoverPointer:hover{
+    cursor: pointer;
+    transform: scale(1.02);
 }
-.testing-div {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-.testing-div div{
-    display: flex;
-    gap: 1rem;
+tr:hover{
+    cursor: pointer;
 }

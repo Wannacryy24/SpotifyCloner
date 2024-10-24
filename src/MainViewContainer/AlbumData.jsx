@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { TokenContext } from '../ContextAPI/Context';
 import { Skeleton } from '@mui/material';
-
+import './Album.css'
 export default function AlbumData() {
     const [albumData, setAlbumData] = useState([]);
     const [loading, setLoading] = useState(true); 
@@ -11,7 +11,6 @@ export default function AlbumData() {
     useEffect(() => {
         const fetchAlbums = async () => {
             if (!accessToken) return;
-
             const albumIds = `382ObEPsp2rxGrnsizN5TX,1A2GTWGtFfWp7KSQTwWOyo,2noRn2Aes5aoNVsU6iWThc`;
             try {
                 const response = await fetch(`https://api.spotify.com/v1/albums?ids=${albumIds}`, {
@@ -24,7 +23,6 @@ export default function AlbumData() {
                 if (!response.ok) {
                     throw new Error(`Album fetch error: ${response.status}`);
                 }
-
                 const data = await response.json();
                 setAlbumData(data.albums);
                 setLoading(false); 
@@ -45,13 +43,26 @@ export default function AlbumData() {
     }
 
     return (
-        <div className='testing-div'>
+        <>
             <h1>Albums</h1>
-            <div>
+            <div className='album-div'>
                 {albumData.map((album, index) => (
-                    <img key={album.id} src={album.images[0]?.url} alt={album.name} />
+                    <div key={album.id} className='album-single-holder hoverPointer'>
+                        <>
+                            <img key={album.id} src={album.images[0]?.url} alt={album.name} />
+                            <h3>{album.name}</h3>
+                            <p>{album.artists.map(artist => artist.name).join(', ')}</p>
+                        </>
+                    </div>
                 ))}
             </div>
-        </div>
+        </>
     );
 }
+
+// <div key={album.id} className="album" onClick={() => fetchAlbumSongs(album.id)}>
+//               <img src={album.images[0].url} alt={album.name} />
+//               <h3>{album.name}</h3>
+//               <p>{album.artists.map(artist => artist.name).join(', ')}</p>
+//               <button className="play-button">▶</button>
+//             </div>
