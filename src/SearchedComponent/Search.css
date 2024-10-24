@@ -48,5 +48,7 @@
     display: flex;
     transition: 1s;
 }
-
+.track:hover img {
+    opacity: 0.7;
+}
 
