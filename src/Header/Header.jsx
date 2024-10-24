@@ -17,9 +17,9 @@ export default function Header() {
     if(searchInput === ''){
       navigate('/');
     }else{
-      navigate(`/search/${searchInput}`);
+      navigate(`/search/${encodeURIComponent(searchInput)}`);
     }
-    setSearchQuery(e.target.value); 
+    setSearchQuery(searchInput); 
   }
   
   return (

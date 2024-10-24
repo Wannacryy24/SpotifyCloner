@@ -10,12 +10,15 @@ export default function SearchedComponent() {
     
     useEffect(() => {
         setSearchQuery(searchInput);
+
         const handleSearch = async () => {
           if (!accessToken) return;
-          if (searchQuery.trim() === "") {
+
+          if (searchQuery.trim()=== "") {
             setSearchResults([]);
             return;
           }
+          
           try {
             const response = await fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(searchQuery)}&type=track`,
               {
