@@ -12,10 +12,11 @@ export default function Songslist(){
     const [selectedAlbumSongs, setSelectedAlbumSongs] = useState([]);
     const [error, setError] = useState(null);
 
+    
     useEffect(() => {    
         const fetchAlbumSongs = async () => {
-            console.log(`Fetching songs for album ID: ${trackId}`); // Log the album ID
-            console.log(`Access Token: ${accessToken}`); 
+            // console.log(`Fetching songs for album ID: ${trackId}`);
+            // console.log(`Access Token: ${accessToken}`); 
             try {
                 const response = await fetch(`https://api.spotify.com/v1/albums/${trackId}/tracks`, {
                     method: "GET",
