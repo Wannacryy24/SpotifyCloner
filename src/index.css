@@ -5,9 +5,10 @@
 tr:hover{
     cursor: pointer;
 }
-.album{
-    width: 10rem;
-}
+
+.overflow-hidden::-webkit-scrollbar {
+    display: none; 
+  }
 @media(max-width:768px){
     .album{
         display: flex;

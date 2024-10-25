@@ -12,7 +12,7 @@ export default function AlbumData() {
     useEffect(() => {
         const fetchAlbums = async () => {
             if (!accessToken) return;
-            const albumIds = `382ObEPsp2rxGrnsizN5TX,1A2GTWGtFfWp7KSQTwWOyo,2noRn2Aes5aoNVsU6iWThc`;
+            const albumIds = `5KF4xCxDD8ip003hoatFT9,3RZxrS2dDZlbsYtMRM89v8,3BGU0BqGwBkYDHpfCWFm7I,3I3kZyHUtEA9Y59rJkxtk6,3vDIjYB1eatEoGlVoZWUFs,45ZIondgVoMB84MQQaUo9T`;
             try {
                 const response = await fetch(`https://api.spotify.com/v1/albums?ids=${albumIds}`, {
                     method: 'GET',
@@ -49,9 +49,9 @@ export default function AlbumData() {
     return (
         <div className='album-main-container'>
             <h1>Albums</h1>
-            <div className='album-div'>
+            <div className='album-div overflow-hidden'>
                 {albumData.map((album, index) => (
-                    <div key={album.id} className='album hoverPointer' onClick={() => fetchAlbumSongs(album.id)}>
+                    <div key={album.id} className='album-div-container hoverPointer' onClick={() => fetchAlbumSongs(album.id)}>
                         <>
                             <img key={album.id} src={album.images[0]?.url} alt={album.name} />
                             <h3>{album.name}</h3>

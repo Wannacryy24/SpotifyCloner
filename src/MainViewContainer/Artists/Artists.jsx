@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { TokenContext } from '../../ContextAPI/Context';
-
+import './Artist.css'
 export default function Artists() {
     const { accessToken} = useContext(TokenContext);
     const [artistData , setArtistData] = useState([]);
@@ -8,7 +8,7 @@ export default function Artists() {
     useEffect(()=>{
         const fetchArtist = async ()=> {
             if (!accessToken) return;
-            const artistIds = '2CIMQHirSU0MQqyYHq0eOx,57dN52uHvrHOxijzpIgu3E,1vCWHaC5f2uS3yhpwWbIA6';
+            const artistIds = '1wRPtKGflJrBx9BmLsSwlU,7uIbLdzzSEqnX0Pkrb56cR,4fEkbug6kZzzJ8eYX6Kbbp,6DARBhWbfcS9E4yJzcliqQ,1SJOL9HJ08YOn92lFcYf8a,0oOet2f43PA68X5RxKobEy';
             try{
                 const getArtistResponse = await fetch(`https://api.spotify.com/v1/artists?ids=${artistIds}`, {
                     method: 'GET',
@@ -21,19 +21,38 @@ export default function Artists() {
                     throw new Error(`Album fetch error: ${getArtistResponse.status}`);
                 }
             const data = await getArtistResponse.json();
-            console.log(data);
-            // setArtistData(data);
+            console.log(data.artists);
+            setArtistData(data.artists);
             }
             catch{
                 setError(error);
             }
         }
         fetchArtist();
-    },[accessToken])
+    },[accessToken]);
 
+    const fetchArtistDetails = ()=>{
+
+    }
 
     return (
     <>
+        <div className='artists-container'>
+            <h1>
+                Artists
+            </h1>
+            <div className='artists-div overflow-hidden'>
+                {
+                    artistData.map((item,index)=>(
+                        <div key={item.id} className='artist-single-data-div' onClick={()=>fetchArtistDetails(item.id)}>
+                            <img src={item.images[0].url} alt="" />
+                            <p className='artist-name-p'>{item.name}</p>
+                            <p className='artist-p'>{item.type[0].toUpperCase()+item.type.slice(1)}</p>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
     </>
   )
 }

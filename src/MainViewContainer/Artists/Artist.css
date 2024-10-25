@@ -1,0 +1,25 @@
+.artists-container{
+    height: 65vh;
+    padding-bottom: 5vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.artists-div{
+    display: flex;
+    gap: 1.5rem;
+    overflow-y: auto;
+}
+.artist-single-data-div{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+.artist-single-data-div img{
+    height: 25vh;
+    width: 25vh;
+    border-radius: 50%;
+}
+.artist-p{
+    color: #B3B3B3;
+}

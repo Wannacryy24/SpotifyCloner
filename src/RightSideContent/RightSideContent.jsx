@@ -5,10 +5,10 @@ import './RightSideContent.css'
 import Artists from '../MainViewContainer/Artists/Artists'
 export default function RightSideContent() {
   return (
-    <div className="content">
+    <div className="content overflow-hidden">
+        <Artists/>
         <AlbumData/>
         <NewReleases/>
-        <Artists/>
     </div>
   )
 }

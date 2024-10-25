@@ -42,7 +42,7 @@ export default function NewReleases() {
   return ( 
     <div className="new-releases">
       <h1>New Releases</h1>
-          <div className="album-container">
+          <div className="album-container overflow-hidden">
         {newReleasesData.length > 0 ? (
           newReleasesData.map((album) => (
             <div key={album.id} className="album" onClick={() => fetchAlbumSongs(album.id)}>
