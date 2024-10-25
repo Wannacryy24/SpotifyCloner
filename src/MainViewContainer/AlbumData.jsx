@@ -66,9 +66,3 @@ export default function AlbumData() {
     );
 }
 
-// <div key={album.id} className="album" onClick={() => fetchAlbumSongs(album.id)}>
-//               <img src={album.images[0].url} alt={album.name} />
-//               <h3>{album.name}</h3>
-//               <p>{album.artists.map(artist => artist.name).join(', ')}</p>
-//               <button className="play-button">▶</button>
-//             </div>
