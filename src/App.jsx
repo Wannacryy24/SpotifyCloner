@@ -50,6 +50,7 @@ export default function App(){
                 <Route path="/" element={<RightSideContent/>}/>
                 <Route path="/tracks/:trackId" element={<Songslist/>}/>
                 <Route path='/song/:id' element={<Player/>}/>
+                <Route path='/artist/:artistId' element={<h1>Artist</h1>}/>
                 <Route path="/search/:searchInput" element={<SearchedComponent/>} />
                 <Route path='*' element={<PageNotFound/>}/>
             </Routes>

@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { TokenContext } from '../../ContextAPI/Context';
 import './Artist.css'
+import { useNavigate } from 'react-router';
 export default function Artists() {
     const { accessToken} = useContext(TokenContext);
     const [artistData , setArtistData] = useState([]);
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
     useEffect(()=>{
         const fetchArtist = async ()=> {
             if (!accessToken) return;
@@ -31,8 +33,8 @@ export default function Artists() {
         fetchArtist();
     },[accessToken]);
 
-    const fetchArtistDetails = ()=>{
-
+    const fetchArtistDetails = (artistId)=>{
+        navigate(`/artist/${artistId}`);
     }
 
     return (
@@ -44,7 +46,7 @@ export default function Artists() {
             <div className='artists-div overflow-hidden'>
                 {
                     artistData.map((item,index)=>(
-                        <div key={item.id} className='artist-single-data-div' onClick={()=>fetchArtistDetails(item.id)}>
+                        <div key={item.id} className='artist-single-data-div hoverPointer' onClick={()=>fetchArtistDetails(item.id)}>
                             <img src={item.images[0].url} alt="" />
                             <p className='artist-name-p'>{item.name}</p>
                             <p className='artist-p'>{item.type[0].toUpperCase()+item.type.slice(1)}</p>

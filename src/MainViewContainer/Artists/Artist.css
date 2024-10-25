@@ -11,6 +11,7 @@
     overflow-y: auto;
 }
 .artist-single-data-div{
+    padding: 5px;
     display: flex;
     flex-direction: column;
     gap: .5rem;

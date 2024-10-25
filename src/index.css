@@ -2,13 +2,15 @@
     cursor: pointer;
     transform: scale(1.02);
 }
+
 tr:hover{
     cursor: pointer;
 }
 
 .overflow-hidden::-webkit-scrollbar {
     display: none; 
-  }
+}
+
 @media(max-width:768px){
     .album{
         display: flex;
