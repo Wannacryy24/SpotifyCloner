@@ -39,6 +39,8 @@ export default function AlbumData() {
         return <Skeleton variant="rect" width={210} height={118} />;
     }
 
+    
+
     if (error) {
         return <div>Error fetching albums: {error}</div>; 
     }
