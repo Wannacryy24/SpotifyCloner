@@ -1,5 +1,5 @@
 .album-main-container{
-    height: 65vh;
+    /* height: 65vh; */
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
