@@ -14,9 +14,7 @@ export default function Songslist(){
 
     
     useEffect(() => {    
-        const fetchAlbumSongs = async () => {
-            // console.log(`Fetching songs for album ID: ${trackId}`);
-            // console.log(`Access Token: ${accessToken}`); 
+        const fetchAlbumSongs = async () => { 
             try {
                 const response = await fetch(`https://api.spotify.com/v1/albums/${trackId}/tracks`, {
                     method: "GET",

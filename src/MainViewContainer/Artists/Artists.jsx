@@ -7,6 +7,7 @@ export default function Artists() {
     const [artistData , setArtistData] = useState([]);
     const [error, setError] = useState(null);
     const navigate = useNavigate();
+   
     useEffect(()=>{
         const fetchArtist = async ()=> {
             if (!accessToken) return;
@@ -33,6 +34,7 @@ export default function Artists() {
         fetchArtist();
     },[accessToken]);
 
+    
     const fetchArtistDetails = (artistId)=>{
         navigate(`/artist/${artistId}`);
     }
