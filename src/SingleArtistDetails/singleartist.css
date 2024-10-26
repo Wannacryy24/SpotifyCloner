@@ -26,3 +26,13 @@
     transform: scale(1.03);
     transition: 0.5s;
 }
+@media(max-width:768px){
+    .singleArtist{
+        width: 40vw;
+        padding: 2rem;
+    }
+    .singleArtist img{
+        width: 90%;
+        height: 90%;
+    }
+}

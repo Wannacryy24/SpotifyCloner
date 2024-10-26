@@ -48,7 +48,48 @@
         const addtwo = curriedAdd(2)
         console.log(addtwo(3));
 
+
         
+        const pipe = function(...fns){
+            return function(value){
+                // var returenedValue = value;
+                for(let i=0 ; i<fns.length; i++){
+                    value =  fns[i](value);
+                }
+                return value;
+            }
+        }
+        const pipedFunction = pipe(add, multiply);
+        pipedFunction(10);
+
+        // Pipe polyfill
+        function pipe(...fns) {
+            return function (initialValue) {
+                // Apply functions from left to right
+                return fns.reduce((acc, fn) => fn(acc), initialValue);
+            };
+        }
+
+        function compose(...fns) {
+            return function (initialValue) {
+                // Apply functions from right to left
+                return fns.reduceRight((acc, fn) => fn(acc), initialValue);
+            };
+        }
+
+        //HOC and PURE FUNCTIONS Definations And What is Functional Javascript
+
+
+
+
+
+
+
+
+
+
+
+
     </script>
 </head>
 <body>
