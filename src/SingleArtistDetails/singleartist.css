@@ -1,11 +1,15 @@
 .singleArtist{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     gap: 1rem;
     margin-top: 1rem;
     text-align: center;
-    width: 10vw;
+    width: 15vw;
+    background-color: rgba(49, 49, 49, 0.797);
+    padding: 1rem;
+    border-radius: 1rem;
 }
 .singleArtist img{
     width: 10rem;
@@ -17,4 +21,8 @@
     flex-wrap: wrap;
     justify-content: space-around;
     gap: 1rem;
+}
+.singleArtist:hover{
+    transform: scale(1.03);
+    transition: 0.5s;
 }

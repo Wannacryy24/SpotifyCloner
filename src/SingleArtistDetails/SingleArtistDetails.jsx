@@ -45,10 +45,10 @@ export default function SingleArtistDetails() {
         <div className='singleArt-cont'>
         {
             artistData.map((singleItem, index)=>(
-                <div className='singleArtist' key={singleItem.id}>
+                <div className='singleArtist' key={singleItem.id}  onClick={()=>handlePlaySong(singleItem.id)}>
                      <img src={singleItem.album.images[0].url}  />
                    
-                    <p onClick={()=>handlePlaySong(singleItem.id)}>{singleItem.name}</p>
+                    <p>{singleItem.name}</p>
                     <p>{singleItem.duration_ms}</p>
                     
                 </div>
