@@ -1,0 +1,20 @@
+.singleArtist{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+    text-align: center;
+    width: 10vw;
+}
+.singleArtist img{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+}
+.singleArt-cont{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1rem;
+}

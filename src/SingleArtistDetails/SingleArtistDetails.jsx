@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { TokenContext } from '../ContextAPI/Context';
 import { useNavigate, useParams } from 'react-router-dom';
+import './singleartist.css'; 
 
 export default function SingleArtistDetails() {
     const [error, setError] = useState(null);
@@ -41,14 +42,19 @@ export default function SingleArtistDetails() {
   return (
     <div className='content'>
         {/* <h1>{artistData && artistData[0].artists[0].name}</h1> */}
+        <div className='singleArt-cont'>
         {
             artistData.map((singleItem, index)=>(
-                <div key={singleItem.id}>
-                    
+                <div className='singleArtist' key={singleItem.id}>
+                     <img src={singleItem.album.images[0].url}  />
+                   
                     <p onClick={()=>handlePlaySong(singleItem.id)}>{singleItem.name}</p>
+                    <p>{singleItem.duration_ms}</p>
+                    
                 </div>
             ))
-        }
+       }
+       </div>
     </div>
   )
 }
